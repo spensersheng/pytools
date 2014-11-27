@@ -10,16 +10,11 @@ import MockSSH
 # command: exit
 #
 def exit_command_success(instance):
-    if 'config' in instance.protocol.prompt:
-        instance.protocol.prompt = "hostname#"
-    else:
-        instance.protocol.call_command(
-            instance.protocol.commands['_exit'])
-
+    instance.protocol.call_command(
+        instance.protocol.commands['_exit'])
 
 def exit_command_failure(instance):
     instance.writeln("MockSSH: supported usage: exit")
-
 
 def getcmd_exit():
     command_exit = MockSSH.ArgumentValidatingCommand(
