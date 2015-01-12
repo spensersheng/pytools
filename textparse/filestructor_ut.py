@@ -16,5 +16,17 @@ class TestFileStructor(unittest.TestCase):
         expect_filename=self.filestrutor.get_src_filename()
         self.assertEqual(filename, expect_filename)
         
+    def test_verify(self):
+        #false
+        filename='abce.txt'
+        self.filestrutor.set_src_filename(filename)
+        self.assertFalse(self.filestrutor.verify())
+        
+        #true
+        filename='utdata/sample.txt'
+        self.filestrutor.set_src_filename(filename)
+        self.assertTrue(self.filestrutor.verify())
+        
+        
     def tearDown(self):
         pass
