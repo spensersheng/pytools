@@ -26,7 +26,12 @@ class TestFileStructor(unittest.TestCase):
         filename='utdata/sample.txt'
         self.filestrutor.set_src_filename(filename)
         self.assertTrue(self.filestrutor.verify())
-        
+    
+    def test_generate_result_file(self):
+        filename='utdata/sample.txt'
+        target_file='utdata/sample.txt.ut'
+        self.filestrutor.set_src_filename(filename)
+        self.filestrutor.generate_result_file(target_file)
         
     def tearDown(self):
         pass
